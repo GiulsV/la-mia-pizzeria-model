@@ -14,13 +14,13 @@ namespace la_mia_pizzeria_model.Controllers
         }
         public IActionResult Index()
         {
-            List<Pizza> listaPizze = db.Pizzas.ToList();
+            List<Pizza> listaPizze = db.Pizze.ToList();
             return View(listaPizze);
         }
 
         public IActionResult Detail(int id)
         {
-            Pizza pizza = db.Pizzas.Where(pizza => pizza.Id == id).FirstOrDefault();
+            Pizza pizza = db.Pizze.Where(pizza => pizza.Id == id).FirstOrDefault();
             if (pizza == null)
                 return View("Errore", "Pizza non trovata");
 

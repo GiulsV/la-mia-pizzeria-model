@@ -6,29 +6,23 @@
 }
 else
 {
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">NOME</th>
-                <th scope="col">DESCRIZIONE</th>
-                <th scope="col">IMMAGINE</th>
-                <th scope="col">PREZZO</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (Pizza pizza in Model)
-            {
-                <tr>
-                    <th scope="row">@pizza.Name</th>
-                    <td>@pizza.Description</td>
-                    <td><img alt="@pizza.Name" src="@pizza.Image" style="width:200px"></td>
-                    <td>@pizza.Price</td>
-                    <td>
-                        <a href="@Url.Action("Details",new {id = pizza.Id})">SHOW</a>     
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+    <div class=" d-flex justify-content-around">
+
+        @foreach (Pizza pizza in Model)
+        {
+            <div class="card" style="width: 18rem;">
+                <img alt="@pizza.Name" src="@pizza.Image" class="img-fluid">
+                <div class="card-body">
+                    <h5 class="card-title">Nome: @pizza.Name</h5>
+                    <p class="card-text">Descrizione: @pizza.Description</p>
+                        <div class="d-flex justify-content-between">
+                        <a href="@Url.Action("Detail",new {id = pizza.Id})" class="btn btn-primary" role="button">SHOW</a>
+                                <strong class="">Prezzo: @pizza.Price €</strong>
+                        </div>
+                </div>
+            </div>
+        }
+     </div>
 }
+
+
